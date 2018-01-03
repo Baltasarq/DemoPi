@@ -1,0 +1,131 @@
+<html>
+  <!-- DemoPI (c) Baltasar 2018 MIT License baltasarq@gmail.com -->
+  <head>
+    <title>DemoPI</title>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="demopi.css" />
+    <script src="demopi.js"></script>
+    <script>
+        window.onload = function() {
+            update();
+        }
+    </script>
+  </head>
+  <body>
+  <h1>demo&Pi;</h1>
+  <p>Demonstrating the value of &pi;.</p>
+  <hr/>
+  <table>
+  <tr>
+  <td class="clsTdLabel">
+      Radius: r =
+  </td>
+  <td class="clsTdData">
+      <input type="number" id="edRadius" class="clsEdNumber" value="20">
+  </td>
+  </tr>
+  </table>
+  <button id="lnkPerimeter" class="clsButton"
+      onclick="javascript: return switchDisplay('dvPerimeter', 'lnkPerimeter')">
+      &#91;-&#93;</button>&nbsp;Perimeter
+  <div id="dvPerimeter" class="clsDvData">
+  <table>
+  <tr>
+  <td class="clsTdLabel">
+      Theoretical Pr =
+  </td>
+  <td class="clsTdData">
+      <br/>
+      <span class="clsLblFormulae">2 &times; r &times; &pi;</span>
+      <input type="number" id="lblCalcPerimeter" class="clsEdNumber"
+              size="7"
+              readonly="true"
+              value="0">
+  </td>
+  <td class="clsTdLabel">
+      Pr =
+  </td>
+  <td class="clsTdData">
+      <input type="number" id="lblPerimeter" class="clsEdNumber"
+              size="7"
+              readonly="true"
+              value="0">
+  </td>
+  </tr>
+  <tr>
+  <td class="clsTdLabel">
+      Theoretical &pi; =
+  </td>
+  <td class="clsTdData">
+      <span class="clsLblFormulae">Pr / (2 &times; r)</span>
+      <br/>
+          <input type="number" id="lblTheoreticalPi" class="clsEdNumber"
+                      size="7"
+                      readonly="true"
+                      value="0">
+  </td>
+  <td class="clsTdLabel">
+      Practical &pi; =
+  </td>
+  <td class="clsTdData">
+  <span class="clsLblFormulae">Pr / (2 &times; r)</span>
+  <br/>
+  <input type="number" id="lblPracticalPi" class="clsEdNumber"
+                      size="7"
+                      readonly="true"
+                      value="0">
+  </td>
+  </tr>
+  </table>
+  </div>
+  <br/>
+  <button id="lnkArea" class="clsButton"
+      onclick="javascript: return switchDisplay('dvArea', 'lnkArea')">
+      &#91;+&#93;</button>&nbsp;Area
+  <div id="dvArea" class="clsDvData">
+  <table>
+  <tr>
+  <td class="clsTdLabel">
+      Theoretical area =
+  </td>
+  <td class="clsTdData">
+  <span class="clsLblFormulae">&pi; &times; r<sup>2</sup></span>
+  <br/>
+  <input type="number" id="lblArea" class="clsEdNumber"
+          size="7"
+          readonly="true"
+          value="0">
+  </td>
+  <td class="clsTdLabel">
+      Practical area =
+  </td>
+  <td class="clsTdData">
+      <input type="number" id="lblPracticalArea" class="clsEdNumber"
+              size="7"
+              readonly="true"
+              value="0">
+  </td>
+  </tr>
+  <tr>
+  <td class="clsTdLabel">
+      Practical<sub>2</sub> &pi; =
+  </td>
+  <td class="clsTdData">
+      <span class="clsLblFormulae">a / r<sup>2</sup></span>
+      <br/>
+      <input type="number" id="lblPracticalPi2" class="clsEdNumber"
+              size="7"
+              readonly="true"
+              value="0">
+  </td>
+  </tr>
+  </table>
+  </div>
+  <p class="clsPCenter">
+  <input type="button" value = "&pi; calc" onclick="javascript: update()"
+         class="clsButton"/>
+  </p>
+  <div id="dvBoard" class="clsDvData">
+  </div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+/* DemoPI (c) Baltasar 2018 MIT License <baltasarq@gmail.com> */
+
+body {
+    font-size: 16pt;
+}
+
+table {
+    width: 70%
+}
+
+.clsButton {
+    font-size: 16pt;
+    font-family: monospace
+}
+
+.clsDvData {
+    border: solid gray 1px;
+    margin: 10px
+}
+
+.clsTdLabel {
+    text-align: right
+}
+
+.clsTdData {
+    width: 25%
+}
+
+.clsEdNumber {
+    text-align: right;
+    font-size: 10pt;
+    font-family: monospace
+}
+
+.clsLblFormulae {
+    font-family: monospace
+}
+
+.clsPCenter {
+    text-align: center
+}
+
+#dvArea {
+    display: none
+}
