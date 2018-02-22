@@ -73,18 +73,13 @@ function drawQuarterCircle(canvas)
 /** Creates the board, given the size for each side
  *  @param side The size for each side
  */
-function createBoard(side)
+function resizeBoard(side)
 {
-    const dvBoard = document.getElementById( "dvBoard" );
-    const cvBoard = document.createElement( "canvas" );
-    const pBoard = document.createElement( "p" );
+    const cvBoard = document.getElementById( "cvBoard" );
 
-    dvBoard.innerHTML = "";
-    pBoard.style[ "text-align" ] = "center";
-    pBoard.appendChild( cvBoard );
-    dvBoard.appendChild( pBoard );
     cvBoard.width = side;
     cvBoard.height = side;
+    cvBoard.getContext( "2d" ).clearRect( 0, 0, side, side );
     return cvBoard;
 }
 
@@ -125,7 +120,7 @@ function update()
     const lblArea = document.getElementById( "lblArea" );
     const radius = parseFloat( edRadius.value );
     const pxs = calculateCirclePerimeter( radius );
-    const cvBoard = createBoard( radius );
+    const cvBoard = resizeBoard( radius );
 
     // Calc theoretical values
     const pr = 2 * radius * Math.PI;
@@ -134,13 +129,13 @@ function update()
     lblTheoreticalPi.value = radius > 0? pr / ( 2 * radius ): 0;
     lblArea.value = area;
 
-    // Calc practical values
+    // Calculate practical values
     drawQuarterCircle( cvBoard );
 
     const calcArea = calculateCircleArea( cvBoard );
     lblPracticalArea.value = calcArea;
     lblPerimeter.value = pxs;
-    lblPracticalPi.value = radius > 0? pxs / ( radius * 2 ): 0;
+    lblPracticalPi.value = radius > 0 ? ( pxs / ( radius * 2 ) ): 0;
     lblPracticalPi2.value = calcArea / ( radius * radius );
 }
 
