@@ -1,5 +1,6 @@
 // DemoPI (c) Baltasar 2018 MIT License <baltasarq@gmail.com>
 
+
 /** Counts the pixels needed for a circle.
  *  Simulates the drawing of a circle using the bresenham's algorithm.
  *  Algorithm adapted from wikipedia's drawCircle().
@@ -47,6 +48,7 @@ function calculateCirclePerimeter(radius)
     return toret;
 }
 
+
 /** Draws a quarter of a circle on given canvas,
  *  the radius equals the size of the canvas.
  *  @param canvas The drawing board, a canvas element.
@@ -60,9 +62,11 @@ function drawQuarterCircle(canvas)
     const radius = canvas.width;
     const ctx = canvas.getContext( "2d" );
 
+    ctx.globalAlpha = 1;
     ctx.strokeStyle = "#000000";
     ctx.lineWidth = 1;
     ctx.imageSmoothingEnabled = false;
+    
     ctx.beginPath();
     ctx.moveTo( x, y );
     ctx.arc( x, y, radius, Math.PI, -( Math.PI / 2 ) );
@@ -76,12 +80,15 @@ function drawQuarterCircle(canvas)
 function resizeBoard(side)
 {
     const cvBoard = document.getElementById( "cvBoard" );
+    const ctx = cvBoard.getContext( "2d" );
 
     cvBoard.width = side;
     cvBoard.height = side;
-    cvBoard.getContext( "2d" ).clearRect( 0, 0, side, side );
+    ctx.globalAlpha = 1;
+    ctx.clearRect( 0, 0, side, side );
     return cvBoard;
 }
+
 
 /** Calculates the area of the whole circle, parting from the 1/4 circle.
   @param canvas The canvas in which the shape is.
@@ -106,6 +113,7 @@ function calculateCircleArea(canvas)
 
     return toret * 4;
 }
+
 
 /** Updates the drawing on screen */
 function update()
@@ -138,6 +146,7 @@ function update()
     lblPracticalPi.value = radius > 0 ? ( pxs / ( radius * 2 ) ): 0;
     lblPracticalPi2.value = calcArea / ( radius * radius );
 }
+
 
 /** Shows or hides a div, given its name.
  * @param divName The name of the div.
